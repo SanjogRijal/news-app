@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
+import Header from './components/navbar'
+import { Container } from '@mui/material'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,9 +16,31 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const navMenus: Array<{ title: string, url: string }> = [
+    { title: 'Technology', url: '#' },
+    { title: 'Design', url: '#' },
+    { title: 'Culture', url: '#' },
+    { title: 'Business', url: '#' },
+    { title: 'Politics', url: '#' },
+    { title: 'Opinion', url: '#' },
+    { title: 'Science', url: '#' },
+    { title: 'Health', url: '#' },
+    { title: 'Style', url: '#' },
+    { title: 'Travel', url: '#' },
+  ];
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+      <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+      </head>
+      <body className={inter.className}>
+        <Container>
+          <Header secondaryNavProps={navMenus} primaryNavProps={{
+            leftLinkContent: 'Sources',
+            titleContent: 'News Application',
+            rightButtonContent: 'More'
+          }} />{children}</Container></body>
+
+    </html >
   )
 }
