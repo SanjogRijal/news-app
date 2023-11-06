@@ -6,8 +6,9 @@ interface CardComponentProps {
     heading: string;
     shortContent: string;
     fullArticle: string;
+    dateTime: string;
 }
-function CardComponent({ imageUrl, heading, shortContent, fullArticle }: CardComponentProps): React.ReactElement {
+function CardComponent({ imageUrl, heading, shortContent, fullArticle, dateTime }: CardComponentProps): React.ReactElement {
     return (<Card
         sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
     >
@@ -29,7 +30,7 @@ function CardComponent({ imageUrl, heading, shortContent, fullArticle }: CardCom
         </CardContent>
         <CardActions>
             <Button size="small">View</Button>
-            <Button size="small">Edit</Button>
+            <Button size="small">{dateTime}</Button>
         </CardActions>
     </Card>
 
